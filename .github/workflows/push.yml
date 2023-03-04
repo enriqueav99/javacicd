@@ -52,4 +52,4 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
 
       - name: hacer el cd en gke
-        run: kubectl set image deployment.apps/deployment javadeplo=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsmongo
+        run: kubectl set image deployment.apps/javadeplo mongo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsmongo
