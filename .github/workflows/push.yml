@@ -30,7 +30,7 @@ jobs:
           distribution: temurin
           cache: maven
 
-      - name: Construir la app quarkus
+      - name: Construir la app quarkuss
         run: ./mvnw clean package
 
       - name: log a dockerhub
