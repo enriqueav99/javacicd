@@ -1,0 +1,2 @@
+apiVersion: mongodbcommunity.mongodb.com/v1
+kind: MongoDBUser
