@@ -21,7 +21,6 @@ jobs:
         uses: 'google-github-actions/get-gke-credentials@v1'
         with:
           cluster_name: cluster-1
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
           location: europe-north1-a
 
       - name: Instalar JDK 11
