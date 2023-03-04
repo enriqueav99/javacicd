@@ -28,7 +28,6 @@ jobs:
         with:
           java-version: '11'
           distribution: temurin
-          cache: maven
 
       - name: Construir la app quarkus
         run: ./mvnw clean package
