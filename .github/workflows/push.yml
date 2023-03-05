@@ -54,7 +54,7 @@ jobs:
       - name: actualizo la version del chart
         uses: fjogeleit/yaml-update-action@main
         with:
-          valueFile: ./javachart/values.yaml
+          valueFile: ./kubernetes/javachart/values.yaml
           propertyPath: imagen.tag
           value: ${{github.sha}}
           commitChange: false
@@ -62,7 +62,7 @@ jobs:
       - name: Hacer upgrade en helm
         uses: WyriHaximus/github-action-helm3@3.x
         with:
-          exec: helm upgrade primerchart ./javachart -n nsmongo
+          exec: helm upgrade primerchart ./kubernetes/javachart -n nsmongo
 
       #- name: hacer el cd en gke
        # run: kubectl set image deployment.apps/javadeplo mongo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsmongo
