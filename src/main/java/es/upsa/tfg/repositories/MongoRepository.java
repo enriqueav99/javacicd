@@ -20,7 +20,7 @@ public class MongoRepository implements PanacheMongoRepository<Producto> {
         Producto np = new Producto();
         np.nombre= unidentifiedProduct.getNombre();
         np.proveedor =unidentifiedProduct.getProveedor();
-        np.stock=45; unidentifiedProduct.getStock();
+        np.stock= unidentifiedProduct.getStock();
 
         np.persist();
     }
