@@ -49,7 +49,7 @@ jobs:
           push: true
           tag_with_ref: true
           ag_with_sha: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${GITHUB_REPOSITORY##*/}:${{github.sha}}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/javacicd:${{github.sha}}
 
       - name: actualizo la version del chart
         uses: fjogeleit/yaml-update-action@main
@@ -64,7 +64,7 @@ jobs:
         with:
           valueFile: ./kubernetes/javachart/values.yaml
           propertyPath: imagen.repo
-          value: ${GITHUB_REPOSITORY##*/}
+          value: javacicd
           commitChange: false
 
       - name: Hacer upgrade en helm
