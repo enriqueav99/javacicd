@@ -1,0 +1,4 @@
+nsName: nsmongo
+puertoApp: 8080
+nombreApp: javatfg
+replicasJava: 3

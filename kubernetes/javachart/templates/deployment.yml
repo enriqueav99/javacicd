@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javadeplo
+  namespace: {{.Values.nsName}}
+spec:
+  replicas: {{.Values.replicasJava}}
+  selector:
+    matchLabels:
+      app: {{.Values.nombreApp}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.nombreApp}}
+    spec:
+      containers:
+        - name: mongo-quarkus
+          image: enriqueav99/javacicd:latest
+          env:
+            - name: QUARKUS_MONGODB_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-prueba-admin-system
+                  key: connectionString.standardSrv
+            - name: QUARKUS_MONGODB_CREDENTIALS_USERNAME
+              value: ""
+            - name: QUARKUS_MONGODB_CREDENTIALS_PASSWORD
+              value: ""
+          ports:
+            - containerPort: 8080
