@@ -15,16 +15,12 @@ spec:
     spec:
       containers:
         - name: mongo-quarkus
-          image: enriqueav99/javacicd:latest
+          image: "{{.Values.imagen.usuario}}/{{.Values.imagen.repo}}:{{.Values.imagen.tag}}"
           env:
             - name: QUARKUS_MONGODB_CONNECTION_STRING
               valueFrom:
                 secretKeyRef:
                   name: mongo-prueba-admin-system
                   key: connectionString.standardSrv
-            - name: QUARKUS_MONGODB_CREDENTIALS_USERNAME
-              value: ""
-            - name: QUARKUS_MONGODB_CREDENTIALS_PASSWORD
-              value: ""
           ports:
-            - containerPort: 8080
+            - containerPort: {{.Values.puertoApp}}

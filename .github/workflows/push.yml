@@ -51,5 +51,18 @@ jobs:
           ag_with_sha: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
 
-      - name: hacer el cd en gke
-        run: kubectl set image deployment.apps/javadeplo mongo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsmongo
+      - name: actualizo la version del chart
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: ./javachart/values.yaml
+          propertyPath: imagen.tag
+          value: ${{github.sha}}
+          commitChange: false
+
+      - name: Hacer upgrade en helm
+        uses: WyriHaximus/github-action-helm3@3.x
+        with:
+          exec: helm upgrade primerchart ./javachart -n nsmongo
+
+      #- name: hacer el cd en gke
+       # run: kubectl set image deployment.apps/javadeplo mongo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsmongo
