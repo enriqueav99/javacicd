@@ -70,7 +70,7 @@ jobs:
       - name: Hacer upgrade en helm
         uses: WyriHaximus/github-action-helm3@3.x
         with:
-          exec: helm upgrade primerchart ./kubernetes/javachart -n nsmongo
+          exec: helm upgrade tfgchart ./kubernetes/javachart -n nsmongo
 
       #- name: hacer el cd en gke
        # run: kubectl set image deployment.apps/javadeplo mongo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsmongo
