@@ -25,8 +25,9 @@ public class MongoRepository implements PanacheMongoRepository<Producto> {
         np.persist();
     }
 
-    public void updateByNombre(String nombre, int stock){
+    public void updateByNombre(String nombre, int stock, String proveedor){
         Producto producto = findByNombre(nombre);
+        producto.proveedor=proveedor;
         producto.stock=stock;
         producto.persistOrUpdate();
     }

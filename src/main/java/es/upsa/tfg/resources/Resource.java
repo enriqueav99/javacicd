@@ -149,7 +149,7 @@ public class Resource {
                             implementation = UnidentifiedProduct.class
                     )
             )) UnidentifiedProduct product){
-        mongoRepository.updateByNombre(product.nombre,product.stock);
+        mongoRepository.updateByNombre(product.nombre,product.stock, product.proveedor);
         return Response.ok().entity("Producto actualizado").build();
     }
 
