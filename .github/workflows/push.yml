@@ -67,7 +67,7 @@ jobs:
           value: javacicd
           commitChange: false
 
-      - name: Hacer upgrade en helm
+      - name: Hacer upgrade en helm3
         uses: WyriHaximus/github-action-helm3@3.x
         with:
           exec: helm upgrade tfgchart ./kubernetes/javachart -n nsmongo
