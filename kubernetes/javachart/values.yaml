@@ -1,7 +1,8 @@
 nsName: nsmongo
 puertoApp: 8080
 nombreApp: javatfg
-replicasJava: 3
+replicasJava: 2
+replicasJavaMax: 5
 imagen:
   usuario: enriqueav99
   repo: javacicd
